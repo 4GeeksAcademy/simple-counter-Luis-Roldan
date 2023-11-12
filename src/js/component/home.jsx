@@ -1,50 +1,10 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { SecondsCounter } from "./SecondsCounter";
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faClock } from "@fortawesome/free-solid-svg-icons";
+// import { SecondsCounter } from "./SecondsCounter";
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-  }
-
-  calculateSeconds(aCounter, placeValue) {
-    return Math.floor(aCounter / placeValue) % 10;
-  }
-
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.setState((prevState) => ({
-        counter: prevState.counter + 1,
-      }));
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return (
-      <div>
-        <SecondsCounter
-          hundredsThousandsDigit={this.calculateSeconds(
-            this.state.counter,
-            100000
-          )}
-          tensThousandsDigit={this.calculateSeconds(this.state.counter, 10000)}
-          thousandsDigit={this.calculateSeconds(this.state.counter, 1000)}
-          hundredsDigit={this.calculateSeconds(this.state.counter, 100)}
-          tensDigit={this.calculateSeconds(this.state.counter, 10)}
-          oneDigit={this.calculateSeconds(this.state.counter, 1)}
-        />
-      </div>
-    );
-  }
-}
+// const home = () => {};
 
 // Functional secondscounter using UseState
 //
@@ -78,4 +38,62 @@ class Home extends React.Component {
 //   );
 // };
 
-ReactDOM.render(<Home />, document.querySelector("#app"));
+// ReactDOM.render(<Home />, document.querySelector("#app"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faClock } from "@fortawesome/free-solid-svg-icons";
+// import PropTypes from "prop-types";
+
+// export const SecondsCounter = (props) => {
+//   return (
+//     <div className="bg-dark text-white d-flex gap-2 justify-content-center w-100 mt-1 py-1 ">
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ms-2 ">
+//         <FontAwesomeIcon icon={faClock} className="m-auto" />
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
+//         <p className="m-auto">{props.hundredsThousandsDigit}</p>
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
+//         <p className="m-auto">{props.tensThousandsDigit}</p>
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
+//         <p className="m-auto">{props.thousandsDigit}</p>
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
+//         <p className="m-auto">{props.hundredsDigit}</p>
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
+//         <p className="m-auto">{props.tensDigit}</p>
+//       </div>
+//       <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill me-2 ">
+//         <p className="m-auto">{props.oneDigit}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// SecondsCounter.PropTypes = {
+//   hundredsThousandsDigit: PropTypes.number,
+//   tensThousandsDigit: PropTypes.number,
+//   thousandsDigit: PropTypes.number,
+//   hundredsDigit: PropTypes.number,
+//   tensDigit: PropTypes.number,
+//   oneDigit: PropTypes.number,
+// };

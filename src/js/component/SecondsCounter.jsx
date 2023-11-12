@@ -1,42 +1,36 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import propTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 
-export const SecondsCounter = (props) => {
+const Counter = (props) => {
   return (
-    <div className="bg-dark text-white d-flex gap-2 justify-content-center w-100 mt-1 py-1 ">
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ms-2 ">
+    <main className="bg-dark text-white d-flex gap-2 justify-content-center w-100 mt-1 py-1">
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ms-2">
         <FontAwesomeIcon icon={faClock} className="m-auto" />
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
-        <p className="m-auto">{props.hundredsThousandsDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill">
+        {Math.floor(props.seconds / 100000) % 10}
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
-        <p className="m-auto">{props.tensThousandsDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill">
+        {Math.floor(props.seconds / 10000) % 10}
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
-        <p className="m-auto">{props.thousandsDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill">
+        {Math.floor(props.seconds / 1000) % 10}
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
-        <p className="m-auto">{props.hundredsDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill">
+        {Math.floor(props.seconds / 100) % 10}
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill ">
-        <p className="m-auto">{props.tensDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill">
+        {Math.floor(props.seconds / 10) % 10}
       </div>
-      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill me-2 ">
-        <p className="m-auto">{props.oneDigit}</p>
+      <div className="bg-dark text-white border text-center d-inline-flex p-2 flex-fill me-2">
+        {Math.floor(props.seconds / 1) % 10}
       </div>
-    </div>
+    </main>
   );
 };
-
-SecondsCounter.PropTypes = {
-  hundredsThousandsDigit: PropTypes.number,
-  tensThousandsDigit: PropTypes.number,
-  thousandsDigit: PropTypes.number,
-  hundredsDigit: PropTypes.number,
-  tensDigit: PropTypes.number,
-  oneDigit: PropTypes.number,
+Counter.propTypes = {
+  segundos: propTypes.number,
 };
+export default Counter;
